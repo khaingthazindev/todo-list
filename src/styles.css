@@ -4,10 +4,10 @@
 }
 
 body {
-  background: #333;
-  color: hsl(200, 100%, 90%);
-  max-width: 400px;
-  padding: 1rem;
+  background-image: url("/images/background.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  /*padding: 1rem;*/
   margin: 0 auto;
 }
 
@@ -52,7 +52,6 @@ body {
 .new-item-form input {
   outline: none;
   border: 1px solid hsl(200, 100%, 40%);
-  background: hsl(200, 100%, 30%);
   border-radius: 0.25em;
   padding: 0.25em 0.5em;
   color: hsl(200, 100%, 90%);

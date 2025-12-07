@@ -43,14 +43,15 @@ export default function App() {
     })
   }
 
+
   return (
-    <>
-      <h1 className="text-3xl font-bold underline">
-        Hello world!
+    <div className="tw-w-1/2 tw-mx-auto tw-h-[100dvh] tw-overflow-y-auto tw-bg-white tw-shadow-lg tw-rounded-lg tw-p-6">
+      <h1 className="tw-text-2xl tw-font-bold">
+        Todo List <i className="fa-regular fa-circle-check"></i>
       </h1>
-      <NewTodoForm onSubmit={addTodo} />
+      <NewTodoForm onSubmit={addTodo}/>
       <h1 className="header">Todo List</h1>
       <TodoList todos={todos} toggleTodo={toggleTodo} deleteTodo={deleteTodo} />
-    </>
+    </div>
   )
 }
