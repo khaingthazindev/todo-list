@@ -45,13 +45,12 @@ export default function App() {
 
 
   return (
-    <div className="tw-w-1/2 tw-mx-auto tw-h-[100dvh] tw-overflow-y-auto tw-bg-white tw-shadow-lg tw-rounded-lg tw-p-6">
-      <h1 className="tw-text-2xl tw-font-bold">
+    <div className="tw-w-1/2 tw-mx-auto tw-h-[100dvh] tw-overflow-y-auto tw-bg-white tw-bg-opacity-50 tw-shadow-lg tw-rounded-lg tw-p-6">
+      <h1 className="tw-text-2xl tw-font-bold tw-text-teal-700">
         Todo List <i className="fa-regular fa-circle-check"></i>
       </h1>
       <NewTodoForm onSubmit={addTodo}/>
-      <h1 className="header">Todo List</h1>
-      <TodoList todos={todos} toggleTodo={toggleTodo} deleteTodo={deleteTodo} />
+      <TodoList todos={todos} toggleTodo={toggleTodo} deleteTodo={deleteTodo} className="tw-mt-3 tw-border-2 tw-border-gray-400 tw-p-3 tw-rounded-2xl" />
     </div>
   )
 }
