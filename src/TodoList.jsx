@@ -1,11 +1,14 @@
 import { TodoItem } from "./TodoItem"
 
-export function TodoList({ todos, toggleTodo, deleteTodo, className='' }) {
+export function TodoList({ todos, toggleTodo, deleteTodo, selectedDate, className='' }) {
+		const d = new Date(selectedDate);
+		selectedDate = (d.getMonth()+1) + '/' + d.getDate() + '/' + d.getFullYear();
+
 		return (
 				<div className={`${className}`}>
-						<h1 className={`tw-text-red-400 tw-border-b-2 tw-border-red-200`}>Date: 12/10/2025</h1>
+						<h1 className={`tw-text-red-400 tw-border-b-2 tw-border-red-200`}>Date: {selectedDate}</h1>
 						<ul>
-								{todos.length === 0 && "No Todos"}
+								{todos.length === 0 && <p className="tw-pt-2 tw-text-neutral-600">Your list is empty. Add your first task for today!</p>}
 								{todos.map(todo => {
 										return (
 												<TodoItem
