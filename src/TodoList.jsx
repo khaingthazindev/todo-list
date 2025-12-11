@@ -2,14 +2,19 @@ import { TodoItem } from "./TodoItem"
 
 export function TodoList({ todos, toggleTodo, deleteTodo, selectedDate, className='' }) {
 		const d = new Date(selectedDate);
-		selectedDate = (d.getMonth()+1) + '/' + d.getDate() + '/' + d.getFullYear();
+		const month = d.getMonth() + 1;
+		const day = d.getDate();
+		const year = d.getFullYear();
+		selectedDate = `${month}-${day}-${year}`;
+
+		const filteredTodos = todos.filter(todo => todo.date === selectedDate);
 
 		return (
 				<div className={`${className}`}>
 						<h1 className={`tw-text-red-400 tw-border-b-2 tw-border-red-200`}>Date: {selectedDate}</h1>
 						<ul>
-								{todos.length === 0 && <p className="tw-pt-2 tw-text-neutral-600">Your list is empty. Add your first task for today!</p>}
-								{todos.map(todo => {
+								{filteredTodos.length === 0 && <p className="tw-pt-2 tw-text-neutral-600">Your list is empty. Add your first task for {selectedDate}!</p>}
+								{filteredTodos.map(todo => {
 										return (
 												<TodoItem
 														{...todo}
@@ -20,6 +25,10 @@ export function TodoList({ todos, toggleTodo, deleteTodo, selectedDate, classNam
 												/>
 										)
 								})}
+
+								<hr/>
+
+
 						</ul>
 				</div>
 		)

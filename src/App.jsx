@@ -28,7 +28,7 @@ export default function App() {
     setTodos(latestTodos => {
       return [
         ...latestTodos,
-        { id: crypto.randomUUID(), title, date: today, completed: false },
+        { id: crypto.randomUUID(), title, date: '12-12-2025', completed: false },
       ]
     })
   }
