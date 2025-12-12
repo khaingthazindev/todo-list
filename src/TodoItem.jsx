@@ -1,4 +1,4 @@
-export function TodoItem({ completed, id, title, toggleTodo, deleteTodo, className='' }) {
+export function TodoItem({ completed, id, title, toggleTodo, deleteTodo, onOpenEdit, className='' }) {
 		return (
 				<li className={`${className}`}>
 						<label>
@@ -10,7 +10,7 @@ export function TodoItem({ completed, id, title, toggleTodo, deleteTodo, classNa
 								<span className="tw-pl-1">{title}</span>
 						</label>
 						<div>
-								<button className="tw-ml-2">
+								<button className="tw-ml-2" onClick={() => onOpenEdit(id)}>
 										<i className="fa-regular fa-pen-to-square tw-text-orange-400"></i>
 								</button>
 								<button onClick={() => deleteTodo(id)} className="tw-ml-2">

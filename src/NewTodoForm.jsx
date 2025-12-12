@@ -13,7 +13,6 @@ export function NewTodoForm({ onSubmit }) {
   }
 
   function inputChangeHandler(e) {
-    console.log(e.target.value);
     setNewItem(e.target.value);
   }
 

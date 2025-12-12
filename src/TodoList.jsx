@@ -1,6 +1,6 @@
 import { TodoItem } from "./TodoItem"
 
-export function TodoList({ todos, toggleTodo, deleteTodo, selectedDate, className='' }) {
+export function TodoList({ todos, toggleTodo, deleteTodo, selectedDate, onOpenEdit, onCloseEdit, className='' }) {
 		const d = new Date(selectedDate);
 		const month = d.getMonth() + 1;
 		const day = d.getDate();
@@ -21,13 +21,11 @@ export function TodoList({ todos, toggleTodo, deleteTodo, selectedDate, classNam
 														key={todo.id}
 														toggleTodo={toggleTodo}
 														deleteTodo={deleteTodo}
+														onOpenEdit={onOpenEdit}
 														className='tw-my-2 tw-bg-white tw-rounded-3xl tw-py-2 tw-px-4 tw-flex tw-justify-between'
 												/>
 										)
 								})}
-
-								<hr/>
-
 
 						</ul>
 				</div>
