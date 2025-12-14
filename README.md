@@ -3,3 +3,6 @@
 
 ## 📸 Todo Edit Demo
 ![Demo2](./demo2.png)
+
+## 📸 Completed List Demo
+![Demo3](./demo3.png)

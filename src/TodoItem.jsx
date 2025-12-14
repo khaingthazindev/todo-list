@@ -6,6 +6,7 @@ export function TodoItem({ completed, id, title, toggleTodo, deleteTodo, onOpenE
 										type="checkbox"
 										checked={completed}
 										onChange={e => toggleTodo(id, e.target.checked)}
+										className="tw-cursor-pointer"
 								/>
 								<span className="tw-pl-1">{title}</span>
 						</label>
