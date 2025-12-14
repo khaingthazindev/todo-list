@@ -1,4 +1,4 @@
-import { TodoItem } from "./TodoItem"
+import { TodoItem } from "../TodoItem.jsx"
 import {CompletedItem} from "./CompletedItem.jsx";
 
 export function TodoList({ todos, toggleTodo, deleteTodo, selectedDate, onOpenEdit, onCloseEdit, className='' }) {

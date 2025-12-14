@@ -6,13 +6,21 @@ export function AuthProvider({children}) {
 		const [user, setUser] = useState(null);
 
 		useEffect(() => {
-				const savedUser = localStorage.getItem("USER")
-				if (savedUser) setUser(JSON.parse(savedUser))
+				const token = localStorage.getItem("TOKEN");
+				if (token) {
+						// simulate token validation
+						const savedUser = JSON.parse(localStorage.getItem("USER"));
+						if (savedUser) setUser(savedUser);
+						else localStorage.removeItem("TOKEN"); // invalid token
+				}
 		}, [])
 
 		function register(email, password) {
 				const user = { email, password } // ⚠ demo only
+				const token = crypto.randomUUID();
+
 				localStorage.setItem("USER", JSON.stringify(user))
+				localStorage.setItem("TOKEN", token);
 				setUser(user)
 		}
 
@@ -24,16 +32,21 @@ export function AuthProvider({children}) {
 						savedUser.email === email &&
 						savedUser.password === password
 				) {
+						const token = crypto.randomUUID();
+						localStorage.setItem("TOKEN", token);
 						setUser(savedUser)
 						return true
 				}
 				return false;
 		}
 
-		const logout = () => setUser(null);
+		const logout = () => {
+				localStorage.removeItem("TOKEN");
+				setUser(null)
+		};
 
 		return (
-				<AuthContext.Provider value={{user, login, logout}}>
+				<AuthContext.Provider value={{user, register, login, logout}}>
 						{children}
 				</AuthContext.Provider>
 		);

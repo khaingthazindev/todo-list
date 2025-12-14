@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { useAuth } from "./Auth"
+import {toast} from "react-toastify";
 
 export default function Register({ onSwitch }) {
 		const { register } = useAuth()
@@ -7,13 +8,14 @@ export default function Register({ onSwitch }) {
 		const [password, setPassword] = useState("")
 
 		function handleSubmit(e) {
-				e.preventDefault()
-				register(email, password)
+				e.preventDefault();
+				register(email, password);
+				toast("Registered successfully 🎉");
 		}
 
 		return (
 				<div className="tw-bg-slate-100 tw-w-1/2">
-						<form className="tw-min-h-screen tw-flex tw-flex-col tw-items-center tw-justify-center">
+						<form onSubmit={handleSubmit} className="tw-min-h-screen tw-flex tw-flex-col tw-items-center tw-justify-center">
 								<h1 className="tw-text-5xl tw-mb-4 tw-font-arizonia tw-text-teal-700">Register</h1>
 
 								<input
@@ -31,7 +33,7 @@ export default function Register({ onSwitch }) {
 										onChange={e => setPassword(e.target.value)}
 								/>
 
-								<button className="tw-bg-red-500 tw-text-white tw-px-4 tw-py-2 tw-w-1/2">
+								<button type="submit" className="tw-bg-red-500 tw-text-white tw-px-4 tw-py-2 tw-w-1/2">
 										Register
 								</button>
 

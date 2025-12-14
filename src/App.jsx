@@ -8,11 +8,12 @@ export default function App() {
 		const { user } = useAuth()
 		const [mode, setMode] = useState("register")
 
-		if (user) return <Dashboard />
+		if (user) return <Dashboard />;
 
 		return mode === "login" ? (
 				<Login onSwitch={() => setMode("register")} />
 		) : (
 				<Register onSwitch={() => setMode("login")} />
+
 		)
 }

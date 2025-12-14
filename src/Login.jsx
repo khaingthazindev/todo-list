@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { useAuth } from "./Auth"
+import {toast} from "react-toastify";
 
 export default function Login({ onSwitch }) {
 		const { login } = useAuth()
@@ -8,7 +9,9 @@ export default function Login({ onSwitch }) {
 
 		function handleSubmit(e) {
 				e.preventDefault()
-				login(email, password)
+				const ok = login(email, password)
+				if (ok) toast("Login successfully 🎉");
+				else toast.error("Invalid credentials")
 		}
 
 		return (
