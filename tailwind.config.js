@@ -3,7 +3,11 @@ export default {
   prefix: 'tw-',
   content: ["./src/**/*.{html,js,jsx}"],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        arizonia: ['Arizonia', 'sans-serif'],
+      },
+    },
   },
   plugins: [],
 }
